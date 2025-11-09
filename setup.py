@@ -12,8 +12,7 @@ setup(
     packages=['Extensions.FeedsFinder'],
     package_data={
         'Extensions.FeedsFinder': [
-            '*.sh',
-            '*.xml',
-            'ddbuttons/*.png']},
+            '*.png',
+            'picon/*.png']},
     description='Find Sattelite Feeds and Scan them',
     cmdclass=setup_translate.cmdclass)

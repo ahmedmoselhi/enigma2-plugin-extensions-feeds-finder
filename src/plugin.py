@@ -552,19 +552,27 @@ class FeedFinder(Screen):
             except ImportError as e:
                 log.error(
                     f"[FeedsFinder] Error importing {module_name} module: {e}")
-                self.session.open(
-                    MessageBox,
-                    f"Error importing {module_name} module: {e}",
-                    MessageBox.TYPE_ERROR)
+                module_name = 'pli'
+                try:
+                    from Plugins.Extensions.FeedsFinder.pli import Satfinder as Satfinder_PLI
+                    self.session.open(Satfinder_PLI)
+                    return
+                except ImportError as e:
+                    log.error(
+                        f"[FeedsFinder] Error importing {module_name} module: {e}")
+                    self.session.open(
+                        MessageBox,
+                        f"Error importing {module_name} module: {e}",
+                        MessageBox.TYPE_ERROR)
         else:
             module_name = 'Satfinder'
             if fileExists(
                 resolveFilename(
                     SCOPE_PLUGINS,
-                    'Extensions/Satfinder/plugin.py')) or fileExists(
+                    'SystemPlugins/Satfinder/plugin.py')) or fileExists(
                 resolveFilename(
                     SCOPE_PLUGINS,
-                    'Extensions/Satfinder/plugin.pyc')):
+                    'SystemPlugins/Satfinder/plugin.pyc')):
                 try:
                     from Plugins.Extensions.Satfinder import Satfinder
                     self.session.open(Satfinder)
