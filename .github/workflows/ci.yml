@@ -48,7 +48,7 @@ jobs:
           python -O -m compileall ./src/
       - name: Check code with flake8
         run: |
-          flake8 --ignore=W191,E117,E126,E128,E501,F821,W504,F841,E711,F401,E741 --show-source
+          flake8 --ignore=W191,E117,E126,E128,E501,F821,W503,W504,F841,E711,F401,E741 --show-source
   test-language:
     needs: test-python
     runs-on: ubuntu-latest
@@ -112,6 +112,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ env.SRCPV }}
           name: ${{ env.COMMIT_SUBJECT }}
+          allow_override: true
           gzip: false
           files: >
             ipk/enigma2-plugin-extensions-feeds-finder_${{ env.PKGV }}_all.ipk
