@@ -1,0 +1,9 @@
+Package: enigma2-plugin-extensions-feeds-finder
+Version:
+Description: Find Sattelite Feeds and Scan them
+Section: extra
+Priority: optional
+Maintainer: momi133 <moom133@gmail.com> /ahmedmoselhi <ahmedmoselhi55@gmail.com>
+Architecture: all
+Homepage: unknown
+Recommends:
